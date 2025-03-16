@@ -1,0 +1,176 @@
+@import "variables";
+
+a {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family_1;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  background: $background-color_0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid $border-color;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+// FORM SECTION
+.form-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.signin-form-heading {
+  margin-bottom: 30px;
+  text-align: center;
+  color: $color_4;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  background: $background-color_3;
+  font-size: 1.6rem;
+  color: $color_1;
+  cursor: pointer;
+
+  &:hover {
+    background: lighten($background-color_3, 30%);
+  }
+}
+
+.extension-group {
+  display: flex;
+  justify-content: space-between;
+
+  .extension-link {
+    margin-bottom: 5px;
+
+    a {
+      font-weight: 500;
+      color: $background-color_3;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.signup-link {
+  margin-top: 20px;
+  text-align: center;
+
+  a {
+    font-weight: 600;
+    color: $background-color_3;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.error-message {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: $error-color;
+}
+
+input.error,
+select.error {
+  border-color: $error-color;
+}
+
+// Mixins for media queries
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin smartphone {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+.login-page {
+  .image-section {
+    @include tablet {
+      display: none;
+    }
+
+    @include smartphone {
+      display: none;
+    }
+  }
+}
